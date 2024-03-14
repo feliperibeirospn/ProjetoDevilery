@@ -1,0 +1,48 @@
+
+  <div id="app">
+    <div id="builder">
+      <h2>Monte seu Açaí</h2>
+      <label for="tipo">Escolha: </label>
+      <select id="tipo">
+          <option value="copo">{{tipo[0]}}</option>
+          <option value="tigela">{{tipo[1]}}</option>
+      </select>
+
+      <label for="tamanho">Tamanho: </label>
+      <select id="tamanho">
+          <option value="pequeno">Pequeno</option>
+          <option value="medio">Médio</option>
+          <option value="grande">Grande</option>
+      </select>
+      <br>
+      <label for="creme">Escolha o Creme: </label>
+      <select id="creme">
+          <option value="morango">Morango</option>
+          <option value="chocolate">Chocolate</option>
+          <option value="original">Original</option>
+      </select>
+      <br>
+      <label for="adicional">Adicionais (máx. 5): </label>
+      <div id="checkbox-container"></div>
+
+      <label for="fruta">Escolha a Fruta: </label>
+      <select id="fruta">
+          <option value="morango">Morango</option>
+          <option value="banana">Banana</option>
+          <option value="kiwi">Kiwi</option>
+          <!-- Adicione mais opções aqui -->
+      </select>
+      <br>
+      <label for="cobertura">Escolha a Cobertura: </label>
+      <select id="cobertura">
+          <option value="granola">Granola</option>
+          <option value="chocolate">Chocolate</option>
+          <option value="chantilly">Chantilly</option>
+          <!-- Adicione mais opções aqui -->
+      </select>
+
+      <button onclick="adicionarAoCarrinho()">Adicionar ao Carrinho</button>
+      <button onclick="limparSelecoes()">Limpar Seleções</button>
+    </div>
+  </div>
+
