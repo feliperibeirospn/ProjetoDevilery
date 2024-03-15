@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './mensagem-pedido.component.scss'
 })
 export class MensagemPedidoComponent {
-
+  
 }

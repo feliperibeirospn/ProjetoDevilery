@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateComponent } from './create.component';
+import { AppAcaiBuilderComponent } from './app-acai-builder.component';
 
-describe('CreateComponent', () => {
-  let component: CreateComponent;
-  let fixture: ComponentFixture<CreateComponent>;
+describe('AppAcaiBuilderComponent', () => {
+  let component: AppAcaiBuilderComponent;
+  let fixture: ComponentFixture<AppAcaiBuilderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CreateComponent]
+      imports: [AppAcaiBuilderComponent]
     })
     .compileComponents();
-
-    fixture = TestBed.createComponent(CreateComponent);
+    
+    fixture = TestBed.createComponent(AppAcaiBuilderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

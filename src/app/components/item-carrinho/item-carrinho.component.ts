@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './item-carrinho.component.scss'
 })
 export class ItemCarrinhoComponent {
-
+  
 }
