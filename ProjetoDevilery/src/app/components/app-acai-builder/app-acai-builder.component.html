@@ -1,0 +1,38 @@
+<div id="builder">
+  <h2>Monte seu Açaí</h2>
+  <label for="tipo">Escolha: </label>
+  <select id="tipo" [(ngModel)]="selectedType">
+    <option *ngFor="let type of types" [value]="type">{{type}}</option>
+  </select>
+
+  <label for="tamanho">Tamanho: </label>
+  <select id="tamanho" [(ngModel)]="selectedSize">
+    <option *ngFor="let size of sizes" [value]="size">{{size}}</option>
+  </select>
+  <br>
+  <label for="creme">Escolha o Creme: </label>
+  <select id="creme" [(ngModel)]="selectedCream">
+    <option *ngFor="let cream of creams" [value]="cream">{{cream}}</option>
+  </select>
+  <br>
+  <label for="adicional">Adicionais (máx. 5): </label>
+  <div id="checkbox-container">
+    <div *ngFor="let addon of addons" class="checkbox-wrapper">
+      <input type="checkbox" [value]="addon" (change)="toggleAddonCheckbox($event)">
+      <label>{{ addon }}</label>
+    </div>
+  </div>
+
+  <label for="fruta">Escolha a Fruta: </label>
+  <select id="fruta" [(ngModel)]="selectedFruit">
+    <option *ngFor="let fruit of fruits" [value]="fruit">{{fruit}}</option>
+  </select>
+  <br>
+  <label for="cobertura">Escolha a Cobertura: </label>
+  <select id="cobertura" [(ngModel)]="selectedTopping">
+    <option *ngFor="let topping of toppings" [value]="topping">{{topping}}</option>
+  </select>
+
+  <button (click)="adicionarAoCarrinho()">Adicionar ao Carrinho</button>
+  <button (click)="limparSelecoes()">Limpar Seleções</button>
+</div>
