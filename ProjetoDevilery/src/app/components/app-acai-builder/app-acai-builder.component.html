@@ -17,10 +17,8 @@
   <br>
   <label for="adicional">Adicionais (máx. 5): </label>
   <div id="checkbox-container">
-    <div *ngFor="let addon of addons" class="checkbox-wrapper">
-      <input type="checkbox" [value]="addon" (change)="toggleAddonCheckbox($event)">
-      <label>{{ addon }}</label>
-    </div>
+    <input type="checkbox" *ngFor="let addon of selectedAddons" [value]="addon" (change)="toggleAddonCheckbox(addon, $event)">
+    {{ addon }}
   </div>
 
   <label for="fruta">Escolha a Fruta: </label>

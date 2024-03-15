@@ -19,16 +19,16 @@ export class AppAcaiBuilderComponent {
   types: string[] = ['Copo', 'Tigela'];
   sizes: string[] = ['Pequeno', 'Médio', 'Grande'];
   creams: string[] = ['Morango', 'Chocolate', 'Original'];
-  addons: string[] = ['Granola', 'Chocolate', 'Chantilly', 'Coco', 'Ovomaltine','passas','amendoin']; // Renomeie para addons
-  fruits: string[] = ['Morango', 'Banana', 'Kiwi'];
-  toppings: string[] = ['Granola', 'Chocolate', 'Chantilly'];
+  addon: string[] = ['Granola', 'Chocolate', 'Chantilly']; // Adicione mais addons aqui
+  fruits: string[] = ['Morango', 'Banana', 'Kiwi']; // Adicione mais frutas aqui
+  toppings: string[] = ['Granola', 'Chocolate', 'Chantilly']; // Adicione mais coberturas aqui
 
-  selectedType: string = '';
-  selectedSize: string = '';
-  selectedCream: string = '';
+  selectedType: string='tigela';
+  selectedSize: string='10';
+  selectedCream: string = 'ovomaltine';
   selectedAddons: string[] = [];
-  selectedFruit: string = '';
-  selectedTopping: string = '';
+  selectedFruit: string = 'morango';
+  selectedTopping: string = 'feijao'; // Adicione um valor inicial aqui
 
   adicionarAoCarrinho() {
     // Implemente a lógica para adicionar ao carrinho aqui
@@ -41,33 +41,29 @@ export class AppAcaiBuilderComponent {
     console.log('Cobertura:', this.selectedTopping);
   }
 
+
   limparSelecoes() {
-    this.selectedType = '';
+    this.selectedType = ''; // Atribua uma string vazia ('') ao invés de null
     this.selectedSize = '';
     this.selectedCream = '';
     this.selectedAddons = [];
     this.selectedFruit = '';
     this.selectedTopping = '';
+
+
   }
 
-  toggleAddonCheckbox(event: Event) {
+  toggleAddonCheckbox(addon: string, event: Event) {
     const checkbox = event.target as HTMLInputElement;
-    const addon = checkbox.value;
-
     if (checkbox.checked) {
-      if (this.selectedAddons.length < 5) {
-        this.selectedAddons.push(addon);
-      } else {
-        // Implemente uma lógica para lidar com o limite de 5 addons selecionados
-        console.log('Limite de addons alcançado.');
-        checkbox.checked = false; // Desmarca o checkbox se o limite for alcançado
-      }
+      this.toggleAddon(addon);
     } else {
-      const index = this.selectedAddons.indexOf(addon);
-      if (index !== -1) {
-        this.selectedAddons.splice(index, 1);
-      }
+      // Implemente a lógica para remover o addon selecionado, se necessário
     }
   }
 
+  toggleAddon(addon: string) {
+    // Implemente a lógica para adicionar ou remover o addon selecionado
+  }
 }
+
