@@ -1,12 +1,56 @@
-<div class="products-container">
+<div id="builder">
+  <h2>Monte seu Açaí</h2>
+  <form [formGroup]="acaiForm">
+    <div class="form-group">
+      <label for="tipo">Escolha: </label>
+      <select id="tipo" formControlName="tipo">
+        <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="tamanho">Tamanho: </label>
+      <select id="tamanho" formControlName="tamanho">
+        <option *ngFor="let tamanho of tamanhos" [value]="tamanho">{{ tamanho }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="creme">Escolha o Creme: </label>
+      <select id="creme" formControlName="creme">
+        <option *ngFor="let creme of cremes" [value]="creme">{{ creme }}</option>
+      </select>
+    </div>
+    <div id="checkbox-container">
+      <div class="form-group">
+        <label for="adicional">Adicionais (máx. {{maxAdicionais}}): </label>
+      </div>
+      <ul>
+        <li *ngFor="let adicional of adicionais">
+          <input type="checkbox" (change)="adicionarAdicional(adicional)" [checked]="acaiSelecionado?.adicionais?.includes(adicional)">
+          {{ adicional }}
+        </li>
+      </ul>
+    </div>
+    <div class="form-group">
+      <label for="fruta">Escolha sua Fruta: </label>
+      <select id="fruta" formControlName="fruta">
+        <option *ngFor="let fruta of frutas" [value]="fruta">{{ fruta }}</option>
+      </select>
+    </div>
+    <div id="checkbox-container">
+      <div class="form-group">
+        <label for="cobertura">Cobertura (máx. {{MaxCoberturas}}): </label>
+      </div>
+      <ul>
+        <li *ngFor="let cobertura of coberturas">
+          <input type="checkbox" (change)="adicionarCobertura(cobertura)" [checked]="acaiSelecionado?.coberturas?.includes(cobertura)">
+          {{ cobertura }}
+        </li>
+      </ul>
+    </div>
 
-
-@for(product of products; track product.id) {
-  <div class="product">
-    <h3>{{product.name}}</h3>
-    <p>{{product.price}}</p>
-    <button (click)="addToCart(product)">ADD to Cart</button>
-  </div>
-}
-
+    <div>
+      <button (click)="adicionarAoCarrinho()">add</button>
+      <button (click)="limparSelecoes()">Limpar seleções</button>
+    </div>
+  </form>
 </div>
