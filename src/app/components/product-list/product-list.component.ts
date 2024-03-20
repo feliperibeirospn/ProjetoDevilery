@@ -15,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class ProductListComponent implements OnInit {
   acaiForm!: FormGroup;
   lista: any[] = []; // Defina o tipo de lista conforme necessário
-  maxItems: number = 5; // Defina o valor de maxItems conforme necessário
+  maxAdicionais: number = 5; // Defina o valor de maxItems conforme necessário
+  maxItemsCobertura:number = 2; // Defina o valor
   acaiSelecionado: any = { coberturas: [], adicionais: [] }; // Inicializa 'coberturas' e 'adicionais' como arrays vazios
 
   tipos: string[] = ['copo', 'tigela'];
@@ -24,9 +25,6 @@ export class ProductListComponent implements OnInit {
   frutas: string[] = ['morango', 'banana', 'kiwi'];
   coberturas: string[] = ['granola', 'chocolate', 'chantilly'];
   adicionais: string[] = ['granola', 'chocolate', 'chantilly', 'perola', 'saco', 'casa'];
-  maxAdicionais: number = 5;
-  minAdicionais: number = 0;
-  MaxCoberturas: number = 2;
 
   constructor(private formBuilder: FormBuilder, private cartService: CartService) {}
 
@@ -41,24 +39,30 @@ export class ProductListComponent implements OnInit {
     });
   }
   adicionarItem(lista: any[], item: any, maxItems: number) {
+    // Verifica se a lista já atingiu o número máximo de itens
     if (lista.length >= maxItems) {
         alert('Você já selecionou o número máximo de itens!');
         return; // Retorna sem adicionar o item se a lista já estiver cheia
     }
 
-    if (!lista.includes(item)) {
-        lista.push(item);
-    } else {
+    // Verifica se o item já foi selecionado
+    if (lista.includes(item)) {
         alert('Este item já foi selecionado!');
+        return; // Retorna sem adicionar o item novamente
     }
 
+    // Adiciona o item à lista
+    lista.push(item);
+
+    // Verifica se o número máximo de itens foi atingido após adicionar o item
     if (lista.length > maxItems) {
-        const checkbox = document.getElementById(`checkbox-${item.id}`) as HTMLInputElement;
+        // Desmarca a última checkbox se o número máximo de itens foi atingido
+        const lastAddedItem = lista[lista.length - 1];
+        const checkbox = document.getElementById(`checkbox-${lastAddedItem.id}`) as HTMLInputElement;
         if (checkbox) {
-            checkbox.checked = false; // Desmarca a checkbox se o número máximo de itens foi atingido
+            checkbox.checked = false;
         }
     }
-
 }
 
 removerItem(lista: any[], item: any) {
@@ -78,7 +82,7 @@ removerItem(lista: any[], item: any) {
   }
 
   adicionarCobertura(cobertura: string) {
-    this.adicionarItem(this.acaiSelecionado.coberturas, cobertura, this.MaxCoberturas);
+    this.adicionarItem(this.acaiSelecionado.coberturas, cobertura, this.maxItemsCobertura);
   }
 
   removerCobertura(cobertura: string) {

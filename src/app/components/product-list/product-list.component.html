@@ -28,7 +28,7 @@
           <input type="checkbox"
                  (change)="adicionarAdicional(adicional)"
                  [checked]="acaiSelecionado?.adicionais?.includes(adicional)"
-                 [disabled]="acaiSelecionado?.adicionais?.length >= maxItems">
+                 [disabled]="acaiSelecionado?.adicionais?.length >= maxAdicionais">
           {{ adicional }}
       </li>
       <button (click)="limparSelecoesAdicionais()">Limpar Adicionais</button>
@@ -42,11 +42,13 @@
     </div>
     <div id="checkbox-container">
       <div class="form-group">
-        <label for="cobertura">Cobertura (máx. {{MaxCoberturas}}): </label>
+        <label for="cobertura">Cobertura (máx. {{maxItemsCobertura}}): </label>
       </div>
       <ul>
         <li *ngFor="let cobertura of coberturas">
-          <input type="checkbox" (change)="adicionarCobertura(cobertura)" [checked]="acaiSelecionado?.coberturas?.includes(cobertura)">
+          <input type="checkbox" (change)="adicionarCobertura(cobertura)"
+          [checked]="acaiSelecionado?.coberturas?.includes(cobertura)"
+          [disabled]="acaiSelecionado?.coberturas?.length >= maxItemsCobertura">
           {{ cobertura }}
         </li>
       </ul>
