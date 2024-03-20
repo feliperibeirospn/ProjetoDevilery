@@ -25,9 +25,13 @@
       </div>
       <ul>
         <li *ngFor="let adicional of adicionais">
-          <input type="checkbox" (change)="adicionarAdicional(adicional)" [checked]="acaiSelecionado?.adicionais?.includes(adicional)">
+          <input type="checkbox"
+                 (change)="adicionarAdicional(adicional)"
+                 [checked]="acaiSelecionado?.adicionais?.includes(adicional)"
+                 [disabled]="acaiSelecionado?.adicionais?.length >= maxItems">
           {{ adicional }}
-        </li>
+      </li>
+      <button (click)="limparSelecoesAdicionais()">Limpar Adicionais</button>
       </ul>
     </div>
     <div class="form-group">

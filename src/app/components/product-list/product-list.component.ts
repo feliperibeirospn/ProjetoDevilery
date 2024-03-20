@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class ProductListComponent implements OnInit {
   acaiForm!: FormGroup;
+  lista: any[] = []; // Defina o tipo de lista conforme necessário
+  maxItems: number = 5; // Defina o valor de maxItems conforme necessário
   acaiSelecionado: any = { coberturas: [], adicionais: [] }; // Inicializa 'coberturas' e 'adicionais' como arrays vazios
 
   tipos: string[] = ['copo', 'tigela'];
@@ -38,15 +40,25 @@ export class ProductListComponent implements OnInit {
       adicionais: [[]] // Inicialize como um array vazio aqui
     });
   }
-
   adicionarItem(lista: any[], item: any, maxItems: number) {
+    if (lista.length >= maxItems) {
+        alert('Você já selecionou o número máximo de itens!');
+        return; // Retorna sem adicionar o item se a lista já estiver cheia
+    }
+
     if (!lista.includes(item)) {
         lista.push(item);
+    } else {
+        alert('Este item já foi selecionado!');
     }
+
     if (lista.length > maxItems) {
-        alert('Você já selecionou o número máximo de itens!');
-        lista.pop(); // Remove o último item adicionado
+        const checkbox = document.getElementById(`checkbox-${item.id}`) as HTMLInputElement;
+        if (checkbox) {
+            checkbox.checked = false; // Desmarca a checkbox se o número máximo de itens foi atingido
+        }
     }
+
 }
 
 removerItem(lista: any[], item: any) {
@@ -78,7 +90,9 @@ removerItem(lista: any[], item: any) {
     this.acaiSelecionado = { coberturas: [], adicionais: [] }; // Reinicializa o objeto acaiSelecionado
   }
 
-
+  limparSelecoesAdicionais() {
+    this.acaiSelecionado = {adicionais: [] }; // Reinicializa o objeto acaiSelecionado
+  }
 
   adicionarAoCarrinho() {
     if (this.acaiForm.valid) {
