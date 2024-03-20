@@ -7,7 +7,6 @@ export class CartService {
   private items: any[] = JSON.parse(localStorage.getItem('cartItem') || '[]');
 
   constructor() { }
-
   addToCart(product: any) {
     const itemName = `Product ${this.items.length + 1}`; // Nome do produto sequencial
     this.items.push({ ...product, name: itemName, quantity: 1 });
@@ -20,14 +19,9 @@ export class CartService {
 
   delete(item: any) {
     this.items = this.items.filter((i) => i !== item);
-
-    // Atualize os nomes dos itens restantes
-    this.items.forEach((item, index) => {
-      item.name = `Product ${index + 1}`;
-    });
-
     localStorage.setItem('cartItem', JSON.stringify(this.items));
   }
+
   incrementQuantity(id: number) {
     const item = this.items.find((item) => item.id === id);
     if (item) {
@@ -44,9 +38,14 @@ export class CartService {
     }
   }
 
-  getTotal() {
-    return this.items.reduce((acc, item) => {
-      return acc + item.tamanho * item.quantity;
-    }, 0);
-  }
+    getTotal() {
+      // Fornecer um valor inicial para a função reduce
+      localStorage.setItem('cartItem',JSON.stringify(this.items));
+      return this.items.reduce((acc, item) => {
+        return acc + item.tamanho * item.quantity;
+      }, 0); // 0 é o valor inicial
+
+    }
+
+
 }
