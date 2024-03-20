@@ -26,7 +26,7 @@ export class ProductListComponent implements OnInit {
   minAdicionais: number = 0;
   MaxCoberturas: number = 2;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private cartService: CartService) {}
 
   ngOnInit() {
     this.acaiForm = this.formBuilder.group({
@@ -81,6 +81,20 @@ removerItem(lista: any[], item: any) {
 
 
   adicionarAoCarrinho() {
-  //implemente a logica para retornar o array com os itens selecionados em JSON
-}
+    if (this.acaiForm.valid) {
+      const acaiSelecionadoJSON = {
+        tipo: this.acaiForm.get('tipo')?.value,
+        tamanho: this.acaiForm.get('tamanho')?.value,
+        creme: this.acaiForm.get('creme')?.value,
+        fruta: this.acaiForm.get('fruta')?.value,
+        coberturas: this.acaiSelecionado.coberturas,
+        adicionais: this.acaiSelecionado.adicionais
+      };
+
+      this.cartService.addToCart(acaiSelecionadoJSON);
+      this.limparSelecoes(); // Limpa as seleções após adicionar ao carrinho
+    } else {
+      alert('Por favor, preencha todas as opções antes de adicionar ao carrinho.');
+    }
+  }
 }
