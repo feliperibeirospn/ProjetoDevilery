@@ -51,6 +51,7 @@
           [disabled]="acaiSelecionado?.coberturas?.length >= maxItemsCobertura">
           {{ cobertura }}
         </li>
+        <button (click)="limparSelecoesCoberturas()">Limpar Coberturas</button>
       </ul>
     </div>
 
@@ -58,5 +59,6 @@
       <button (click)="adicionarAoCarrinho()">add</button>
       <button (click)="limparSelecoes()">Limpar seleções</button>
     </div>
+    <button (click)="confirmarPedido()">Confirmar Pedido</button>
   </form>
 </div>

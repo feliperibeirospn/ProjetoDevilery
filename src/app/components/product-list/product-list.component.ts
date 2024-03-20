@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, } from '@angular/core';
+import { provideRouter, withViewTransitions } from '@angular/router';
 import {  OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
@@ -98,6 +99,10 @@ removerItem(lista: any[], item: any) {
     this.acaiSelecionado = {adicionais: [] }; // Reinicializa o objeto acaiSelecionado
   }
 
+  limparSelecoesCoberturas(){
+    this.acaiSelecionado = {coberturas: [] };
+  }
+
   adicionarAoCarrinho() {
     if (this.acaiForm.valid) {
       const acaiSelecionadoJSON = {
@@ -114,5 +119,11 @@ removerItem(lista: any[], item: any) {
     } else {
       alert('Por favor, preencha todas as opções antes de adicionar ao carrinho.');
     }
+  }
+
+  confirmarPedido() {
+    // Adicione aqui a lógica para confirmar o pedido
+    // Exemplo: chamar a função confirmarPedido que você já escreveu
+    // this.confirmarPedido();
   }
 }
