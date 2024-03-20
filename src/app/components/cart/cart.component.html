@@ -1,17 +1,20 @@
 <app-product-list/>
-<h1>Cart</h1>
 
-@for(item of CartService.getItems(); track item.id){
-  <div class="cart-item">
-    <h3>{{item.name}}</h3>
-    <p>{{item.price}}</p>
-    <p>{{item.quantity}}</p>
-    <button (click)="deleteFromCart(item)">Remove</button>
-    <button (click)="CartService.incrementQuantity(item.id)">+</button>
-    <button (click)="CartService.decrementQuantity(item.id)">-</button>
+<div class=".cart-container">
+  <h1>Cart</h1>
+
+  @for(item of CartService.getItems(); track item.id){
+    <div class="cart-item">
+      <h3>{{item.name}}</h3>
+      <p>{{item.price}}</p>
+      <p>{{item.quantity}}</p>
+      <button (click)="deleteFromCart(item)">Remove</button>
+      <button (click)="CartService.incrementQuantity(item.id)">+</button>
+      <button (click)="CartService.decrementQuantity(item.id)">-</button>
+    </div>
+
+  }
+  <div>
+    <h1>Total: {{CartService.getTotal()}}</h1>
   </div>
-
-}
-<div>
-  <h1>Total: {{CartService.getTotal()}}</h1>
 </div>

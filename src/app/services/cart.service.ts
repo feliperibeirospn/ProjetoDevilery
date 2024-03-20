@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
-  private items: any[] = JSON.parse(localStorage.getItem('cartItem') || '[]');
+  private items: any[] = JSON.parse(localStorage.getItem('cartItem') || '[]')
 
   constructor() { }
   addToCart(product: any) {
@@ -14,29 +14,28 @@ export class CartService {
   }
 
   getItems() {
-    return this.items;
-  }
+    return this.items;}
 
-  delete(item: any) {
-    this.items = this.items.filter((i) => i !== item);
-    localStorage.setItem('cartItem', JSON.stringify(this.items));
-  }
-
-  incrementQuantity(id: number) {
-    const item = this.items.find((item) => item.id === id);
-    if (item) {
-      item.quantity++;
+    delete(item: any) {
+      this.items = this.items.filter((i) => i !== item);
       localStorage.setItem('cartItem', JSON.stringify(this.items));
     }
-  }
 
-  decrementQuantity(id: number) {
-    const item = this.items.find((item) => item.id === id);
-    if (item) {
-      item.quantity--;
-      localStorage.setItem('cartItem', JSON.stringify(this.items));
+    incrementQuantity(id: number) {
+      const item = this.items.find((item) => item.id === id);
+      if (item) {
+        item.quantity++;
+        localStorage.setItem('cartItem', JSON.stringify(this.items));
+      }
     }
-  }
+
+    decrementQuantity(id: number) {
+      const item = this.items.find((item) => item.id === id);
+      if (item) {
+        item.quantity--;
+        localStorage.setItem('cartItem', JSON.stringify(this.items));
+      }
+    }
 
     getTotal() {
       // Fornecer um valor inicial para a função reduce

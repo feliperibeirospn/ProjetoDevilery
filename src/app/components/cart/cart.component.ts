@@ -15,5 +15,4 @@ export class CartComponent {
   deleteFromCart(item:any){
     this.CartService.delete(item)
   }
-  
 }
