@@ -9,7 +9,8 @@ export class CartService {
   constructor() { }
 
   addToCart(product: any) {
-    this.items.push({ ...product, quantity: 1 });
+    const itemName = `Product ${this.items.length + 1}`; // Nome do produto sequencial
+    this.items.push({ ...product, name: itemName, quantity: 1 });
     localStorage.setItem('cartItem', JSON.stringify(this.items));
   }
 
@@ -19,9 +20,14 @@ export class CartService {
 
   delete(item: any) {
     this.items = this.items.filter((i) => i !== item);
+
+    // Atualize os nomes dos itens restantes
+    this.items.forEach((item, index) => {
+      item.name = `Product ${index + 1}`;
+    });
+
     localStorage.setItem('cartItem', JSON.stringify(this.items));
   }
-
   incrementQuantity(id: number) {
     const item = this.items.find((item) => item.id === id);
     if (item) {
