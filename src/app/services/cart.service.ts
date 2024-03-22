@@ -11,6 +11,8 @@ export class CartService {
     const itemName = `Product ${this.items.length + 1}`; // Nome do produto sequencial
     this.items.push({ ...product, name: itemName, quantity: 1 });
     localStorage.setItem('cartItem', JSON.stringify(this.items));
+    //ambiente de teste
+    console.log('Itens no carrinho:', this.items);
   }
 
   getItems() {
@@ -19,6 +21,9 @@ export class CartService {
     delete(item: any) {
       this.items = this.items.filter((i) => i !== item);
       localStorage.setItem('cartItem', JSON.stringify(this.items));
+
+      //ambiente de teste
+      console.log('Itens no carrinho:', this.items);
     }
 
     incrementQuantity(id: number) {
@@ -39,9 +44,11 @@ export class CartService {
 
     getTotal() {
       // Fornecer um valor inicial para a função reduce
+
       localStorage.setItem('cartItem',JSON.stringify(this.items));
       return this.items.reduce((acc, item) => {
         return acc + item.tamanho * item.quantity;
+        
       }, 0); // 0 é o valor inicial
 
     }

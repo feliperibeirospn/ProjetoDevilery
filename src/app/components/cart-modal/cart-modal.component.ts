@@ -22,4 +22,5 @@ export class CartModalComponent {
     // Navegar para a rota do modal do carrinho
     this.router.navigate(['/cart-modal']);
   }
+
 }
