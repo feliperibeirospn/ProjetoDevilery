@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, } from '@angular/core';
-import { provideRouter, withViewTransitions } from '@angular/router';
+import { Component, } from '@angular/core';
 import {  OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
+import { FormGroup, Validators,FormBuilder } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,RouterLink],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
