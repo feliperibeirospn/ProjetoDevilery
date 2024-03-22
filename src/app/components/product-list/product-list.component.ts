@@ -4,12 +4,13 @@ import {  OnInit } from '@angular/core';
 import { FormGroup, Validators,FormBuilder } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink, } from '@angular/router';
+import { CartModalComponent } from '../cart-modal/cart-modal.component';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,RouterLink],
+  imports: [CommonModule,ReactiveFormsModule,RouterLink,CartModalComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
@@ -27,7 +28,7 @@ export class ProductListComponent implements OnInit {
   coberturas: string[] = ['granola', 'chocolate', 'chantilly'];
   adicionais: string[] = ['granola', 'chocolate', 'chantilly', 'perola', 'saco', 'casa'];
 
-  constructor(private formBuilder: FormBuilder, private cartService: CartService) {}
+  constructor(private formBuilder: FormBuilder, private cartService: CartService,private router: Router) {}
 
   ngOnInit() {
     this.acaiForm = this.formBuilder.group({
@@ -125,5 +126,9 @@ removerItem(lista: any[], item: any) {
     // Adicione aqui a lógica para confirmar o pedido
     // Exemplo: chamar a função confirmarPedido que você já escreveu
     // this.confirmarPedido();
+  }
+  openCartModal() {
+    // Navegar para a rota do modal do carrinho
+    this.router.navigate(['/cart-modal']);
   }
 }

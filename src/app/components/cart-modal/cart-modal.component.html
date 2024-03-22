@@ -1,0 +1,52 @@
+
+<!-- Button para abrir o modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
+  Abrir Carrinho
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">Seu Carrinho</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Conteúdo do carrinho aqui -->
+        <div class="cart-container">
+          <h1 class="text-center mb-4">Cart</h1>
+
+
+<div class="cart-container">
+  <h1>Cart</h1>
+
+  @for(item of CartService.getItems(); track item.id){
+    <div class="cart-item">
+      <h3>{{item.name}}</h3>
+      <p>{{item.price}}</p>
+      <p>{{item.quantity}}</p>
+      <button (click)="deleteFromCart(item)">Remove</button>
+      <button (click)="CartService.incrementQuantity(item.id)">+</button>
+      <button (click)="CartService.decrementQuantity(item.id)">-</button>
+    </div>
+
+  }
+  <div>
+    <h1>Total: {{CartService.getTotal()}}</h1>
+  </div>
+</div>
+
+          <div class="text-end">
+            <h1>Total: {{ CartService.getTotal() }}</h1>
+          </div>
+        </div>
+        <!-- Fim do conteúdo do carrinho -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Finalizar Compra</button>
+      </div>
+    </div>
+  </div>
+</div>

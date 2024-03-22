@@ -4,6 +4,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NavComponent } from './components/nav/nav.component';
+import { CartModalComponent } from './components/cart-modal/cart-modal.component';
 
 const routes: Routes = [
   // Redirect to home if path is empty
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   // Define route for cart component
   { path: 'cart', component: CartComponent },
+  { path:'cart-modal', component: CartModalComponent },
   // Define route for product list component (assuming it's the full path)
   { path: 'products', component: ProductListComponent }, // Changed path to 'products'
   // Wildcard route for 404 page (any other path)
