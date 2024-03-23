@@ -120,6 +120,7 @@ removerItem(lista: any[], item: any) {
     } else {
       alert('Por favor, preencha todas as opções antes de adicionar ao carrinho.');
     }
+    
   }
 
   confirmarPedido() {

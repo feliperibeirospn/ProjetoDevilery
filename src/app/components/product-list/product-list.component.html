@@ -1,29 +1,29 @@
 
 <app-cart-modal/>
 <div id="builder">
-  <h2>Monte seu Açaí</h2>
+ <h3>Monte seu Açaí</h3>
   <form [formGroup]="acaiForm">
     <div class="form-group">
-      <label for="tipo">Escolha: </label>
+      <label for="tipo"><h2>Escolha: </h2></label>
       <select id="tipo" formControlName="tipo">
         <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="tamanho">Tamanho: </label>
+      <label for="tamanho"><h2>Tamanho:</h2> </label>
       <select id="tamanho" formControlName="tamanho">
         <option *ngFor="let tamanho of tamanhos" [value]="tamanho">{{ tamanho }}</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="creme">Escolha o Creme: </label>
+      <label for="creme"><h2>Escolha o Creme:</h2> </label>
       <select id="creme" formControlName="creme">
         <option *ngFor="let creme of cremes" [value]="creme">{{ creme }}</option>
       </select>
     </div>
     <div id="checkbox-container">
       <div class="form-group">
-        <label for="adicional">Adicionais (máx. {{maxAdicionais}}): </label>
+        <label for="adicional"><h2>Adicionais (máx. {{maxAdicionais}}):</h2> </label>
       </div>
       <ul>
         <li *ngFor="let adicional of adicionais">
@@ -37,14 +37,14 @@
       </ul>
     </div>
     <div class="form-group">
-      <label for="fruta">Escolha sua Fruta: </label>
+      <label for="fruta"><h2>Escolha sua Fruta:</h2> </label>
       <select id="fruta" formControlName="fruta">
         <option *ngFor="let fruta of frutas" [value]="fruta">{{ fruta }}</option>
       </select>
     </div>
     <div id="checkbox-container">
       <div class="form-group">
-        <label for="cobertura">Cobertura (máx. {{maxItemsCobertura}}): </label>
+        <label for="cobertura"><h2>Cobertura (máx. {{maxItemsCobertura}}): </h2></label>
       </div>
       <ul>
         <li *ngFor="let cobertura of coberturas">

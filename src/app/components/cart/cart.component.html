@@ -1,19 +1,59 @@
+<div class="container mt-5 total">
+  <h2 class="mb-4">Meu Carrinho</h2>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="cart-items">
+        <div class="row align-items-center">
+          <!-- Loop sobre os itens do carrinho -->
+          @for(item of CartService.getItems(); track item.id){
+          <div class="cart-item">
 
-<div class="cart-container">
-  <h1>Cart</h1>
 
-  @for(item of CartService.getItems(); track item.id){
-    <div class="cart-item">
-      <h3>{{item.name}}</h3>
-      <p>{{item.price}}</p>
-      <p>{{item.quantity}}</p>
-      <button (click)="deleteFromCart(item)">Remove</button>
-      <button (click)="CartService.incrementQuantity(item.id)">+</button>
-      <button (click)="CartService.decrementQuantity(item.id)">-</button>
+                <div *ngFor="let cartItem of CartService.getItems()">
+                  <h4>{{ cartItem.name }}</h4>
+                  <p>Tipo: {{ cartItem.tipo }}</p>
+                  <p>Tamanho: {{ cartItem.tamanho }}</p>
+                  <p>Creme: {{ cartItem.creme }}</p>
+                  <p>Fruta: {{ cartItem.fruta }}</p>
+                  <p>Coberturas: {{ cartItem.coberturas }}</p>
+                  <p>Adicionais: {{ cartItem.adicionais }}</p>
+                  <p>Quantidade: {{ cartItem.quantity }}</p>
+                </div>
+            
+              <div class="col-md-2">
+                <p>{{item.tamanho | currency:'BRL':'symbol':'1.2-2'}}</p>
+              </div>
+              <button class="btn btn-danger" (click)="deleteFromCart(item)">Remover</button>
+              <button class="btn btn-primary" (click)="CartService.incrementQuantity(item.id)">+</button>
+              <button class="btn btn-primary" (click)="CartService.decrementQuantity(item.id)">-</button>
+            </div>
+          }
+
+
+        </div>
+      </div>
     </div>
-
-  }
-  <div>
-    <h1>Total: {{CartService.getTotal()}}</h1>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Resumo do Pedido</h4>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Subtotal
+              <span>{{CartService.getTotal() | currency:'BRL':'symbol':'1.2-2'}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Taxa de Envio
+              <span>{{10 | currency:'BRL':'symbol':'1.2-2'}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <strong>Total</strong>
+              <span><strong>{{CartService.getTotal()| currency:'BRL':'symbol':'1.2-2'}}</strong></span>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-primary mt-3 btn-block">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
