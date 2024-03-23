@@ -1,0 +1,8 @@
+.cart-icon {
+  position: fixed; /* Posição fixa */
+  top: 80%; /* Alinha verticalmente ao centro */
+  right: 20px; /* Distância da borda direita */
+  transform: translateY(-50%); /* Corrige a posição vertical */
+  z-index: 1; /* Garante que o ícone esteja sempre na frente de outros elementos */
+  /* Adicione aqui estilos de cor, tamanho, etc., conforme necessário */
+}

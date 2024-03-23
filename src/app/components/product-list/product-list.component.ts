@@ -22,18 +22,19 @@ export class ProductListComponent implements OnInit {
   acaiSelecionado: any = { coberturas: [], adicionais: [] }; // Inicializa 'coberturas' e 'adicionais' como arrays vazios
 
   tipos: string[] = ['copo', 'tigela'];
-  tamanhos: number[] = [10, 15, 30];
-  cremes: string[] = ['morango', 'chocolate', 'Sem creme'];
-  frutas: string[] = ['morango', 'banana', 'kiwi'];
-  coberturas: string[] = ['granola', 'chocolate', 'chantilly'];
-  adicionais: string[] = ['granola', 'chocolate', 'chantilly', 'perola', 'saco', 'casa'];
+  prices: number[] = [10 , 15, 15];
+  visualPrices: string[] = ['250G-10.00R$', '350G-12.00R$', '450G-15.00R$'];
+  cremes: string[] = ['morango', 'chocolate', 'Sem creme', 'baunilha', 'coco'];
+  frutas: string[] = ['morango', 'banana', 'kiwi',];
+  coberturas: string[] = [ 'chocolate', 'Avelã', 'Leite condensado', 'Morango','uva'];
+  adicionais: string[] = ['BIS', 'Oreo', 'Batom', 'Gotas', 'Disquete', 'Serenata', 'confete', 'nozes', 'bisnaguinha'];
 
   constructor(private formBuilder: FormBuilder, private cartService: CartService,private router: Router) {}
 
   ngOnInit() {
     this.acaiForm = this.formBuilder.group({
       tipo: ['', Validators.required],
-      tamanho: ['', Validators.required],
+      price: ['', Validators.required],
       creme: ['', Validators.required],
       fruta: ['', Validators.required],
       cobertura: [[]],
@@ -108,7 +109,7 @@ removerItem(lista: any[], item: any) {
     if (this.acaiForm.valid) {
       const acaiSelecionadoJSON = {
         tipo: this.acaiForm.get('tipo')?.value,
-        tamanho: this.acaiForm.get('tamanho')?.value,
+        price: this.acaiForm.get('price')?.value,
         creme: this.acaiForm.get('creme')?.value,
         fruta: this.acaiForm.get('fruta')?.value,
         coberturas: this.acaiSelecionado.coberturas,
@@ -120,7 +121,7 @@ removerItem(lista: any[], item: any) {
     } else {
       alert('Por favor, preencha todas as opções antes de adicionar ao carrinho.');
     }
-    
+
   }
 
   confirmarPedido() {

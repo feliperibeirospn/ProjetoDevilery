@@ -12,7 +12,7 @@
                 <div >
                   <h4>{{ item.name }}</h4>
                   <p>Tipo: {{ item.tipo }}</p>
-                  <p>Tamanho: {{ item.tamanho }}</p>
+                  <p>preço: {{ item.price | currency:'BRL':'symbol':'1.2-2' }}</p>
                   <p>Creme: {{ item.creme }}</p>
                   <p>Fruta: {{ item.fruta }}</p>
                   <p>Coberturas: {{ item.coberturas }}</p>
@@ -21,7 +21,7 @@
                 </div>
 
               <div class="col-md-2">
-                <p>{{item.tamanho | currency:'BRL':'symbol':'1.2-2'}}</p>
+                <p>{{item.price | currency:'BRL':'symbol':'1.2-2'}}</p>
               </div>
               <button class="btn btn-danger" (click)="deleteFromCart(item)">Remover</button>
               <button class="btn btn-primary" (click)="CartService.incrementQuantity(item.id)">+</button>

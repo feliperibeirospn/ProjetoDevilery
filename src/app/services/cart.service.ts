@@ -47,7 +47,7 @@ export class CartService {
 
       localStorage.setItem('cartItem',JSON.stringify(this.items));
       return this.items.reduce((acc, item) => {
-        return acc + item.tamanho * item.quantity;
+        return acc + item.price * item.quantity;
 
       }, 0); // 0 é o valor inicial
 
