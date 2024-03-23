@@ -23,6 +23,8 @@ export class ProductListComponent implements OnInit {
 
   tipos: string[] = ['copo', 'tigela'];
   prices: number[] = [10 , 15, 15];
+  pricesTigela: number[] = [10, 15, 15];
+  pricesCopo: number[] = [10, 15, 15];
   visualPrices: string[] = ['250G-10.00R$', '350G-12.00R$', '450G-15.00R$'];
   cremes: string[] = ['morango', 'chocolate', 'Sem creme', 'baunilha', 'coco'];
   frutas: string[] = ['morango', 'banana', 'kiwi',];
