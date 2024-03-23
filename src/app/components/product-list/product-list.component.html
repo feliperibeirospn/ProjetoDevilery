@@ -1,66 +1,62 @@
-
 <app-cart-modal/>
-<div id="builder">
- <h3>Monte seu Açaí</h3>
-  <form [formGroup]="acaiForm">
-    <div class="form-group">
-      <label for="tipo"><h2>Escolha: </h2></label>
-      <select id="tipo" formControlName="tipo">
-        <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="tamanho"><h2>Tamanho:</h2> </label>
-      <select id="tamanho" formControlName="tamanho">
-        <option *ngFor="let tamanho of tamanhos" [value]="tamanho">{{ tamanho }}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="creme"><h2>Escolha o Creme:</h2> </label>
-      <select id="creme" formControlName="creme">
-        <option *ngFor="let creme of cremes" [value]="creme">{{ creme }}</option>
-      </select>
-    </div>
-    <div id="checkbox-container">
+  <div id="builder" class="container">
+    <h3>Monte seu Açaí</h3>
+    <form [formGroup]="acaiForm" class="form">
       <div class="form-group">
-        <label for="adicional"><h2>Adicionais (máx. {{maxAdicionais}}):</h2> </label>
+        <label for="tipo"><h2>Escolha:</h2></label>
+        <select id="tipo" formControlName="tipo" class="form-control">
+          <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
+        </select>
       </div>
-      <ul>
-        <li *ngFor="let adicional of adicionais">
-          <input type="checkbox"
-                 (change)="adicionarAdicional(adicional)"
-                 [checked]="acaiSelecionado?.adicionais?.includes(adicional)"
-                 [disabled]="acaiSelecionado?.adicionais?.length >= maxAdicionais">
-          {{ adicional }}
-      </li>
-      <button (click)="limparSelecoesAdicionais()">Limpar Adicionais</button>
-      </ul>
-    </div>
-    <div class="form-group">
-      <label for="fruta"><h2>Escolha sua Fruta:</h2> </label>
-      <select id="fruta" formControlName="fruta">
-        <option *ngFor="let fruta of frutas" [value]="fruta">{{ fruta }}</option>
-      </select>
-    </div>
-    <div id="checkbox-container">
       <div class="form-group">
-        <label for="cobertura"><h2>Cobertura (máx. {{maxItemsCobertura}}): </h2></label>
+        <label for="tamanho"><h2>Tamanho:</h2></label>
+        <select id="tamanho" formControlName="tamanho" class="form-control">
+          <option *ngFor="let tamanho of tamanhos" [value]="tamanho">{{ tamanho }}</option>
+        </select>
       </div>
-      <ul>
-        <li *ngFor="let cobertura of coberturas">
-          <input type="checkbox" (change)="adicionarCobertura(cobertura)"
-          [checked]="acaiSelecionado?.coberturas?.includes(cobertura)"
-          [disabled]="acaiSelecionado?.coberturas?.length >= maxItemsCobertura">
-          {{ cobertura }}
-        </li>
-        <button (click)="limparSelecoesCoberturas()">Limpar Coberturas</button>
-      </ul>
-    </div>
+      <div class="form-group">
+        <label for="creme"><h2>Escolha o Creme:</h2></label>
+        <select id="creme" formControlName="creme" class="form-control">
+          <option *ngFor="let creme of cremes" [value]="creme">{{ creme }}</option>
+        </select>
+      </div>
+      <div id="checkbox-container" class="form-group">
+        <label for="adicional"><h2>Adicionais (máx. {{maxAdicionais}}):</h2></label>
+        <ul>
+          <li *ngFor="let adicional of adicionais" class="checkbox-item">
+            <input type="checkbox"
+                   (change)="adicionarAdicional(adicional)"
+                   [checked]="acaiSelecionado?.adicionais?.includes(adicional)"
+                   [disabled]="acaiSelecionado?.adicionais?.length >= maxAdicionais">
+            <span>{{ adicional }}</span>
+          </li>
+          <button (click)="limparSelecoesAdicionais()" class="btn btn-secondary">Limpar Adicionais</button>
+        </ul>
+      </div>
+      <div class="form-group">
+        <label for="fruta"><h2>Escolha sua Fruta:</h2></label>
+        <select id="fruta" formControlName="fruta" class="form-control">
+          <option *ngFor="let fruta of frutas" [value]="fruta">{{ fruta }}</option>
+        </select>
+      </div>
+      <div id="checkbox-container" class="form-group">
+        <label for="cobertura"><h2>Cobertura (máx. {{maxItemsCobertura}}):</h2></label>
+        <ul>
+          <li *ngFor="let cobertura of coberturas" class="checkbox-item">
+            <input type="checkbox" (change)="adicionarCobertura(cobertura)"
+            [checked]="acaiSelecionado?.coberturas?.includes(cobertura)"
+            [disabled]="acaiSelecionado?.coberturas?.length >= maxItemsCobertura">
+            <span>{{ cobertura }}</span>
+          </li>
+          <button (click)="limparSelecoesCoberturas()" class="btn btn-secondary">Limpar Coberturas</button>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button (click)="adicionarAoCarrinho()" class="btn btn-primary">Adicionar ao Carrinho</button>
+        <button (click)="limparSelecoes()" class="btn btn-secondary limpar-selecoes">Limpar Seleções</button>
+        <button (click)="confirmarPedido()" class="btn btn-success finalizar-compra">Confirmar Pedido</button>
+      </div>
 
-    <div>
-      <button (click)="adicionarAoCarrinho()">add</button>
-      <button (click)="limparSelecoes()">Limpar seleções</button>
-    </div>
-    <button (click)="confirmarPedido()">Confirmar Pedido</button>
-  </form>
-</div>
+    </form>
+  </div>
+

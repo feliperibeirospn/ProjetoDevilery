@@ -4,11 +4,6 @@ import { ProductListComponent } from '../product-list/product-list.component';
 import { CartService } from '../../services/cart.service';
 import { RouterLink } from '@angular/router';
 
-const aliasees = {
-  tamanho: 'Tamanho',
-  cor: 'Cor',
-  // Adicione mais aliases conforme necessário
-};
 
 @Component({
   selector: 'app-cart',
@@ -18,13 +13,6 @@ const aliasees = {
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
-  @Input() item: any; // Aqui você define o tipo do item, presumivelmente um objeto qualquer
-
-  getObjectKeys(obj: any): string[] {
-    return Object.keys(obj);
-  }
-
- aliases = aliasees;
 
   CartService = inject(CartService);
 

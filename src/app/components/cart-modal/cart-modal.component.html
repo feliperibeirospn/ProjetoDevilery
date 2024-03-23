@@ -1,7 +1,9 @@
 
 <!-- Button para abrir o modal -->
 <button type="button" class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#cartModal">
- Meu carrinho
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+  </svg>
 </button>
 
 <!-- Modal -->
@@ -14,66 +16,7 @@
       </div>
       <div class="modal-body">
         <!-- Conteúdo do carrinho aqui -->
-        <div class="container mt-5 total">
-          <h2 class="mb-4">Meu Carrinho</h2>
-          <div class="row">
-            <div class="col-md-8">
-              <div class="cart-items">
-                <div class="row align-items-center">
-                  <!-- Loop sobre os itens do carrinho -->
-                  @for(item of CartService.getItems(); track item.id){
-                  <div class="cart-item">
-
-
-                        <div *ngFor="let cartItem of CartService.getItems()">
-                          <h4>{{ cartItem.name }}</h4>
-                          <p>Tipo: {{ cartItem.tipo }}</p>
-                          <p>Tamanho: {{ cartItem.tamanho }}</p>
-                          <p>Creme: {{ cartItem.creme }}</p>
-                          <p>Fruta: {{ cartItem.fruta }}</p>
-                          <p>Coberturas: {{ cartItem.coberturas }}</p>
-                          <p>Adicionais: {{ cartItem.adicionais }}</p>
-                          <p>Quantidade: {{ cartItem.quantity }}</p>
-                        </div>
-
-                      <div class="col-md-2">
-                        <p>{{item.tamanho | currency:'BRL':'symbol':'1.2-2'}}</p>
-                      </div>
-                      <button class="btn btn-danger" (click)="deleteFromCart(item)">Remover</button>
-                      <button class="btn btn-primary" (click)="CartService.incrementQuantity(item.id)">+</button>
-                      <button class="btn btn-primary" (click)="CartService.decrementQuantity(item.id)">-</button>
-                    </div>
-                  }
-
-
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Resumo do Pedido</h4>
-                  <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      Subtotal
-                      <span>{{CartService.getTotal() | currency:'BRL':'symbol':'1.2-2'}}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      Taxa de Envio
-                      <span>{{10 | currency:'BRL':'symbol':'1.2-2'}}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      <strong>Total</strong>
-                      <span><strong>{{CartService.getTotal()| currency:'BRL':'symbol':'1.2-2'}}</strong></span>
-                    </li>
-                  </ul>
-                  <button type="button" class="btn btn-primary mt-3 btn-block">Finalizar Compra</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <app-cart/>
         <!-- Fim do conteúdo do carrinho -->
       </div>
       <div class="modal-footer">
