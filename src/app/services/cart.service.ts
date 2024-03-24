@@ -35,9 +35,12 @@ export class CartService {
     }
 
     decrementQuantity(id: number) {
-      const item = this.items.find((item) => item.id === id);
-      if (item) {
-        item.quantity--;
+      const itemIndex = this.items.findIndex((item) => item.id === id);
+      if (itemIndex !== -1 && this.items[itemIndex].quantity > 0) {
+        this.items[itemIndex].quantity--;
+        if (this.items[itemIndex].quantity === 0) {
+          this.items.splice(itemIndex, 1); // Remove o item do array quando a quantidade for zero
+        }
         localStorage.setItem('cartItem', JSON.stringify(this.items));
       }
     }
