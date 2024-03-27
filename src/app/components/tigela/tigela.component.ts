@@ -40,7 +40,7 @@ export class TigelaComponent implements OnInit {
       price: ['', Validators.required],
       creme: ['', Validators.required],
       fruta: ['', Validators.required],
-      cobertura: [[]],
+      coberturas: [[]],
       adicionais: [[]] // Inicialize como um array vazio aqui
     });
   }

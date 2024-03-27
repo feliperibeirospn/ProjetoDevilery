@@ -10,7 +10,6 @@ export class CartService {
   addToCart(product: any) {
     const itemName = `Produto ${this.items.length + 1}`;
     const price = typeof product.price === 'number' ? product.price : parseFloat(product.price) || 0;
-
     this.items.push({ ...product, name: itemName, quantity: 1, price: price});
     localStorage.setItem('cartItem', JSON.stringify(this.items));
     console.log('Itens no carrinho:', this.items);
