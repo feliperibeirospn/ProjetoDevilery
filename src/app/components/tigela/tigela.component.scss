@@ -1,0 +1,190 @@
+/* Estilos para o componente de montagem de açaí */
+#builder {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos para os cabeçalhos */
+h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para os campos de entrada e seleção */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Estilos para as caixas de seleção */
+.checkbox-item {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+/* Estilos para os botões */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para a lista de seleção */
+ul {
+  padding-left: 0;
+}
+
+/* Estilos para o botão de limpar */
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Estilos para o botão de adicionar ao carrinho */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para o botão de confirmar pedido */
+.btn-success {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Estilos para o botão de limpar seleções */
+.buttons button[type="button"] {
+  margin-top: 10px;
+}
+
+/* Estilo para os checkboxes */
+.checkbox-container input[type="checkbox"] {
+  display: none; /* Oculta o checkbox padrão */
+}
+
+.checkbox-container label {
+  display: block;
+  position: relative;
+  padding-left: 35px; /* Espaçamento à esquerda para o ícone */
+  margin-bottom: 10px; /* Espaçamento entre os checkboxes */
+  cursor: pointer;
+}
+
+.checkbox-container label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px; /* Tamanho do checkbox */
+  height: 25px; /* Tamanho do checkbox */
+  border: 2px solid #007bff; /* Cor da borda */
+  border-radius: 5px; /* Borda arredondada */
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkbox-container input[type="checkbox"]:checked + label:before {
+  background-color: #007bff; /* Cor de fundo quando selecionado */
+  border-color: #007bff; /* Cor da borda quando selecionado */
+}
+
+.checkbox-container label:after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.checkbox-container input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+/* Estilo para o texto ao lado do checkbox */
+.checkbox-container label span {
+  font-size: 16px;
+  color: #333; /* Cor do texto */
+  vertical-align: middle;
+  margin-left: 10px; /* Espaçamento entre o checkbox e o texto */
+}
+
+/* Estilo para os botões */
+.button-container {
+  text-align: center; /* Centraliza os botões */
+  margin-top: 20px; /* Espaçamento superior */
+
+}
+
+.button-container button {
+  margin: 20px;
+  padding: 10px 20px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  color: #fff; /* Cor do texto */
+  background-color: #007bff; /* Cor de fundo */
+  border: none; /* Remove a borda */
+  border-radius: 5px; /* Borda arredondada */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+  background-color: #0056b3; /* Altera a cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o botão "Finalizar Compra" */
+.button-container .finalizar-compra {
+  background-color: #28a745; /* Cor de fundo verde */
+}
+
+.button-container .finalizar-compra:hover {
+  background-color: #218838; /* Altera a cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o botão "Limpar seleções" */
+.button-container .limpar-selecoes {
+  background-color: #dc3545; /* Cor de fundo vermelha */
+}
+
+.button-container .limpar-selecoes:hover {
+  background-color: #c82333; /* Altera a cor de fundo ao passar o mouse */
+}
+
+

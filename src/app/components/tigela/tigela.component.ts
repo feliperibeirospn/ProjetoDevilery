@@ -8,14 +8,13 @@ import { Router, RouterLink, } from '@angular/router';
 import { CartModalComponent } from '../cart-modal/cart-modal.component';
 
 @Component({
-  selector: 'app-product-list',
+  selector: 'app-tigela',
   standalone: true,
   imports: [CommonModule,ReactiveFormsModule,RouterLink,CartModalComponent],
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.scss'
+  templateUrl: './tigela.component.html',
+  styleUrl: './tigela.component.scss'
 })
-
-export class ProductListComponent implements OnInit {
+export class TigelaComponent implements OnInit {
   acaiForm!: FormGroup;
   lista: any[] = []; // Defina o tipo de lista conforme necessário
   maxAdicionais: number = 5; // Defina o valor de maxItems conforme necessário
@@ -25,8 +24,8 @@ export class ProductListComponent implements OnInit {
   tipos: string[] = ['copo', 'tigela'];
   prices: number[] = [10 , 15, 15];
   pricesTigela: number[] = [11, 20, 25];
-  pricesCopo: number[] = [10, 15, 20];
-  visualPrices: string[] = ['250G-10.00R$', '350G-10.00R$', '450G-20.00R$'];
+  pricesCopo: number[] = [10, 15, 15];
+  visualPrices: string[] = ['250G-11.00R$', '350G-20.00R$', '450G-25.00R$'];
 
   cremes: string[] = ['morango', 'chocolate', 'Sem creme', 'baunilha', 'coco'];
   frutas: string[] = ['morango', 'banana', 'kiwi',];
@@ -37,7 +36,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.acaiForm = this.formBuilder.group({
-      tipo: ['copo', Validators.required], //tijela adicionada manualmente
+      tipo: ['tijela', Validators.required], //tijela adicionada manualmente
       price: ['', Validators.required],
       creme: ['', Validators.required],
       fruta: ['', Validators.required],
@@ -138,3 +137,4 @@ removerItem(lista: any[], item: any) {
     this.router.navigate(['/cart-modal']);
   }
 }
+

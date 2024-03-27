@@ -7,6 +7,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { NavComponent } from './components/nav/nav.component';
 import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './components/footer/footer.component';
+import { TigelaComponent } from './components/tigela/tigela.component';
 
 
 
@@ -20,7 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     CartComponent,
     CommonModule,
-    NavComponent, NgbPaginationModule,NgbAlertModule,FooterComponent],
+    NavComponent, NgbPaginationModule,NgbAlertModule,FooterComponent,TigelaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

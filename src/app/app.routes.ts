@@ -5,12 +5,14 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NavComponent } from './components/nav/nav.component';
 import { CartModalComponent } from './components/cart-modal/cart-modal.component';
+import { TigelaComponent } from './components/tigela/tigela.component';
 
 const routes: Routes = [
   // Redirect to home if path is empty
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   // Define route for home component
   { path: 'home', component: HomeComponent },
+  {path: 'tigela', component:TigelaComponent},
   // Define route for cart component
   { path: 'cart', component: CartComponent },
   { path:'cart-modal', component: CartModalComponent },
@@ -19,7 +21,7 @@ const routes: Routes = [
   // Wildcard route for 404 page (any other path)
   { path: '**', component: PageNotFoundComponent },
 
-  { path: 'navbar', component: NavComponent}
+  { path: 'navbar', component: NavComponent},
 ];
 
 export { routes };
