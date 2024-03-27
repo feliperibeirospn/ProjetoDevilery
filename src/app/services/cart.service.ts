@@ -8,12 +8,13 @@ export class CartService {
 
   constructor() { }
   addToCart(product: any) {
-    const itemName = `Produto ${this.items.length + 1}`; // Nome do produto sequencial
-    this.items.push({ ...product, name: itemName, quantity: 1 });
+    const itemName = `Produto ${this.items.length + 1}`;
+    const price = typeof product.price === 'number' ? product.price : parseFloat(product.price) || 0;
+
+    this.items.push({ ...product, name: itemName, quantity: 1, price: price});
     localStorage.setItem('cartItem', JSON.stringify(this.items));
-    //ambiente de teste
     console.log('Itens no carrinho:', this.items);
-  }
+}
 
   getItems() {
     return this.items;}
@@ -56,6 +57,26 @@ export class CartService {
 
     }
 
+    getItemsMessage(): string {
+      let message = 'Itens no carrinho:\n';
+      this.items.forEach((item, index) => {
+        message += `Produto ${index + 1}\n`;
+        message += `Tipo: ${item.tipo}\n`;
+        message += `Preço: ${item.price ? 'R$' + item.price.toFixed(2) : 'Preço não disponível'}\n`;
+        message += `Creme: ${item.creme}\n`;
+        message += `Fruta: ${item.fruta}\n`;
+        message += `Coberturas: ${item.coberturas.join(',')}\n`;
+        message += `Adicionais: ${item.adicionais.join(',')}\n`;
+        message += `Quantidade: ${item.quantity}\n\n`;
+      });
+      return message;
+  }
+  criarLinkWhatsApp(): string {
+    const numeroTelefone = '+5584988947882'; // Substitua pelo número de telefone desejado
+    let mensagemItens = this.getItemsMessage();
+    const mensagemCodificada = encodeURIComponent(mensagemItens);
+    return `https://wa.me/${numeroTelefone}/?text=${mensagemCodificada}`;
+}
 
 
 }
