@@ -15,6 +15,7 @@ import { RouterLink } from '@angular/router';
 export class CartComponent {
    linkWhatsApp: string = '';
   CartService = inject(CartService);
+  taxaDeEnvio:number = 2;
 
 
   deleteFromCart(item:any){
