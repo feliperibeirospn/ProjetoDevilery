@@ -23,15 +23,17 @@ export class ProductListComponent implements OnInit {
   acaiSelecionado: any = { coberturas: [], adicionais: [] }; // Inicializa 'coberturas' e 'adicionais' como arrays vazios
 
   tipos: string[] = ['copo', 'tigela'];
-  prices: number[] = [10 , 15, 15];
-  pricesTigela: number[] = [11, 20, 25];
-  pricesCopo: number[] = [10, 15, 20];
-  visualPrices: string[] = ['250G-10.00R$', '350G-10.00R$', '450G-20.00R$'];
+  prices: number[] = [8, 10, 14,19];
+  pricesTigela: number[] = [10 , 12, 16,20,34];
+  pricesCopo: number[] = [8, 10, 14,19];
+  visualPrices: string[] = ['250ML-8.00R$','300ML-10.00R$','500ML-14.00R$','700ML-19.00R$',];
 
-  cremes: string[] = ['morango', 'chocolate', 'Sem creme', 'baunilha', 'coco'];
+  cremes: string[] = ['Sem creme', 'Ovomaltine', 'morango', 'Tapioca', 'Cupuaçu','Energético','condensado','ninho caseiro','ninho','oreo'];
   frutas: string[] = ['morango', 'banana', 'kiwi',];
-  coberturas: string[] = [ 'chocolate', 'Avelã', 'Leite condensado', 'Morango','uva'];
-  adicionais: string[] = ['BIS', 'Oreo', 'Batom', 'Gotas', 'Disquete', 'Serenata', 'confete', 'nozes', 'bisnaguinha'];
+  coberturas: string[] = [ 'Leite condensado', 'Morango', 'Chocolate', 'Caramelo','Avelã','uva'];
+  adicionais: string[] = ['BIS','OREO','BATOM','GOTAS','DISQUETE','SERENATA',
+  'CHOCOBOL(GRANDE)','CHOCOBOL(MINI)','COCO RALADO','GRANOLA','JUJUBA','GRANULADO','PAÇOCA',
+  'AMENDOIM','CASTANHA','TUBETES','FLOCOS DE ARROZ','OVOMALTINE','LEITE EM PÓ','FARINHA LÁCTEA'];
 
   constructor(private formBuilder: FormBuilder, private cartService: CartService,private router: Router) {}
 

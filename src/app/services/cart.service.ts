@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -6,13 +7,15 @@ import { Injectable } from '@angular/core';
 export class CartService {
   private items: any[] = JSON.parse(localStorage.getItem('cartItem') || '[]')
 
-  constructor() { }
+  constructor(private router: Router) { }
   addToCart(product: any) {
     const itemName = `Produto ${this.items.length + 1}`;
     const price = typeof product.price === 'number' ? product.price : parseFloat(product.price) || 0;
     this.items.push({ ...product, name: itemName, quantity: 1, price: price});
     localStorage.setItem('cartItem', JSON.stringify(this.items));
     console.log('Itens no carrinho:', this.items);
+
+    this.router.navigateByUrl('/home')
 }
 
   getItems() {
@@ -77,5 +80,9 @@ export class CartService {
     return `https://wa.me/${numeroTelefone}/?text=${mensagemCodificada}`;
 }
 
+clearCart() {
+  this.items = []; // Limpa o array de itens
+  localStorage.removeItem('cartItem'); // Remove o item do carrinho do localStorage
+}
 
 }

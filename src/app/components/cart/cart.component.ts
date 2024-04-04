@@ -34,5 +34,6 @@ export class CartComponent {
   gerarLinkWhatsApp(): void {
     this.linkWhatsApp = this.cartService.criarLinkWhatsApp();
     window.location.href = this.linkWhatsApp;
+    this.cartService.clearCart();
   }
 }
