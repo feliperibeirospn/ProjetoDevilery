@@ -5,18 +5,26 @@
         <div class="">
           <h1>Bem-vindo à Açaí Mania!</h1>
           <p>Experimente os melhores açaís da região!</p>
+          <div class="bg-warning" *ngIf="finalizar">
+
+            <a class="nav-link-mobile bg-warning" routerLink="/cart" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+            </svg>Finalizar</a>
+
+          </div>
+
         </div>
       </div>
       <div>
         <div class="container overflow-hidden">
           <div class="d-flex flex-wrap justify-content-center" >
-            <div class="btn btn-primary m-3" routerLink="/tigela">
+            <div class="btn btn-light m-3" routerLink="/tigela">
               <p>Monte seu açai na tigela</p>
-              <img src="assets/img/produtos/produto-acai-cardapio.png" alt="img açai" width="200px">
+              <img src="assets/img/produtos/acaitigela.jpeg" alt="img açai" width="150px" height="200px">
             </div>
-            <div class="btn btn-primary m-3" routerLink="/products">
+            <div class="btn btn-light m-3" routerLink="/products">
               <p>Monte seu açai no copo</p>
-              <img src="assets/img/produtos/produto-acai-cardapio.png" alt="img açai" width="200px">
+              <img src="assets/img/produtos/acaicopo.jpeg" alt="img açai" width="150px" height="200px">
             </div>
           </div>
         </div>

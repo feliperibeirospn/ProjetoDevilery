@@ -4,3 +4,18 @@
 body{
   height: 100vh;
 }
+.nav-link-mobile{
+  display: none;
+  background-color: #a7a9aa4f;
+  .a{list-style: none;}
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: absolute;
+    right: 0;
+  }
+  .buto{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(43,124,227,0.8968837535014006) 46%, rgba(0,212,255,1) 100%);
+    border-radius: 8px;
+  }
+}

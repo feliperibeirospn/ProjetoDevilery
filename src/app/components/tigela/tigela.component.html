@@ -34,7 +34,6 @@
                  [disabled]="acaiSelecionado?.adicionais?.length >= maxAdicionais">
           <span>{{ adicional }}</span>
         </li>
-        <button (click)="limparSelecoesAdicionais()" class="btn btn-secondary">Limpar Adicionais</button>
       </ul>
     </div>
     <div class="form-group">
@@ -52,7 +51,6 @@
           [disabled]="acaiSelecionado?.coberturas?.length >= maxItemsCobertura">
           <span>{{ cobertura }}</span>
         </li>
-        <button (click)="limparSelecoesCoberturas()" class="btn btn-secondary">Limpar Coberturas</button>
       </ul>
     </div>
     <div class="button-container">
